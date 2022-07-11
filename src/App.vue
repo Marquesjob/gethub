@@ -30,6 +30,11 @@ export default {
 <style>
 @import './assets/base.css';
 
+  .container {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
   .subtitle {
     margin: 0 auto;
     display: flex;
