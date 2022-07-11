@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+
+    /* Paleta de cores tema escuro / Organizado do mais escuro ao mais claro */
+    --shadow-dark:rgba(0,0,0,0.16) 0px 1px 12px -1px,rgba(0,0,0,0.06) 0px 0px 0px 0px;
+    
+    --first-dark:#23283e;
+    --second-dark:#2a2f4c;
+    --third-dark:#bdbddd;
+    --fourth-dark:#cdcdff;
+    --fifth-dark:#90a0d9;
+
+    /* Paleta de cores tema claro / Organizado do mais escuro ao mais claro */
+
+    --first-clear:#fcfcfc;
+    --second-clear: #fff;
+    --third-clear: #555;
+    --fourth-clear: #444;
+    --fifth-clear: #2978b5;
+
+}
+
+body {
+  background-color: var(--first-dark);
+  margin: 0;
+}
