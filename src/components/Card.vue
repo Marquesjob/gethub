@@ -2,36 +2,33 @@
 import Github from '@/components/icons/Github.vue';
 import Link from '@/components/icons/Link.vue'
 export default {
-    components: { Github, Link }
+    components: { Github, Link },
+    props: ['test']
 }
 
 </script>
 <template>
     <div class="card">
-        <div v-if="false" class="card__message">
-            <p>Não há nada aqui por enquanto :(</p>
+        <div v-if="true" class="card__message">
+            <p>Não há nada aqui por enquanto :( {{test}}</p>
         </div>
-        <div v-if="true" class="card__content">
+        <div v-if="false" class="card__content">
             <div>
-                <h3 class="card__content__title">Titulo</h3>
+                <h3 class="card__content__title"></h3>
             </div>
             <div>
-                <p class="card__content__datas__description"><strong>data de criação:</strong>
-                <div class="card__content__data">10/10/20</div>
+                <p class="card__content__datas__description"><strong>Data de criação:</strong>
+                <div class="card__content__data"></div>
                 </p>
             </div>
             <div>
-                <p class="card__content__datas__description"><strong>Ultimo commit:</strong>
-                <div class="card__content__data">10/10/20</div>
+                <p class="card__content__datas__description"><strong>Ultima Atualização:</strong>
+                <div class="card__content__data"></div>
                 </p>
             </div>
             <div>
-                <p class="card__content__description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis expedita repudiandae
-                    aspernatur
-                    provident suscipit aperiam ab nulla ut labore rerum quisquam temporibus fuga porro architecto,
-                    voluptate
-                    itaque? Hic, ullam iusto.
+                <p class="card__content__description"> 
+                       
                 </p>
             </div>
             <div class="card__icon">      

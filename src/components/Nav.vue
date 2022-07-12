@@ -1,8 +1,33 @@
 <script>
-  import Github from '@/components/icons/Github.vue'
+import Github from '@/components/icons/Github.vue';
+import axios from "axios"
+import Card from './Card.vue';
 
   export default {
-    components: { Github }
+
+    data() {
+      return {
+        info: null,
+        username: null
+      }
+    },
+
+    methods: {
+       filter(user = string){ 
+        user = (`https://api.github.com/users/${user}/repos`)
+        user = user.toLowerCase();
+        return user;
+      },
+      getUser(user){
+        axios
+        .get(this.filter(user))
+        .then(response => (this.info = response))
+      }
+    },  
+
+    props: ['repoData'],
+
+    components: { Github, Card }
   }
 
 </script>
@@ -13,9 +38,15 @@
       <Github class="nav__label__icon"/>
       <strong> GET</strong>hub.
     </div>
-    <input class="nav__input" placeholder="Digite aqui o nome do perfil">
-    <button class="nav__button">Buscar</button>
+    <input v-model="username"  class="nav__input" placeholder="Digite aqui o nome do perfil">
+    <button @click="$emit(getUser(username))" class="nav__button">Buscar</button>
   </div>
+  <div class="subtitle">
+      <p>Liste os <strong class="subtitle__strong">repositórios</strong> e obtenha informações do seu perfil <strong
+          class="subtitle__strong">Git</strong> favorito através do <strong class="subtitle__strong">GET</strong>hub ;){{ objetojson }} 
+      </p>
+  </div>
+  <Card :test="info"/>
 </template>
 
 <style>
@@ -80,5 +111,23 @@
 
 .nav__button:hover {
   --_p: 0%;
+}
+
+.subtitle {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  font-family: 'poppins', sans-serif;
+  color: var(--fifth-dark);
+  font-weight: 300;
+  font-size: 17px;
+}
+
+.subtitle__strong {
+  color: var(--third-dark);
+}
+
+p {
+  margin-top: 0;
 }
 </style>
