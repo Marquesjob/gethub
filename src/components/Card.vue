@@ -36,7 +36,9 @@ export default {
             </div>
             <div class="card__icon">      
                 <div  id="card__icon__animation">
-                    <Link class="card__icon__link" />
+                    <a v-bind:href="repoData.html_url" target="__blank">
+                        <Link class="card__icon__link" />
+                    </a>
                     <div id="card__icon__underline"></div>
                 </div>
             </div>

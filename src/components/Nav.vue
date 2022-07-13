@@ -44,7 +44,7 @@ export default {
       <strong> GET</strong>hub.
     </div>  
       <input v-model="username" class="nav__input" placeholder="Digite aqui o nome do perfil" required>
-      <button @click="getUser(username)" @keyup.enter="getUser(username)" class="nav__button">Buscar</button> 
+      <button @click="getUser(username)" v-on:keyup.enter="getUser(username)" class="nav__button">Buscar</button> 
   </div>
   <div class="subtitle">
     <p>Liste os <strong class="subtitle__strong">repositórios</strong> e obtenha informações do seu perfil <strong
