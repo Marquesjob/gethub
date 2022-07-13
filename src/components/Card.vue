@@ -2,33 +2,36 @@
 import Github from '@/components/icons/Github.vue';
 import Link from '@/components/icons/Link.vue'
 export default {
+    
+    data() {
+        return {
+    
+        }
+    },
     components: { Github, Link },
-    props: ['test']
+    props: [ 'repoData'],
 }
 
 </script>
 <template>
     <div class="card">
-        <div v-if="true" class="card__message">
-            <p>Não há nada aqui por enquanto :( {{test}}</p>
-        </div>
-        <div v-if="false" class="card__content">
+        <div class="card__content">
             <div>
-                <h3 class="card__content__title"></h3>
+                <h3 class="card__content__title">{{ repoData.name }}</h3>
             </div>
             <div>
-                <p class="card__content__datas__description"><strong>Data de criação:</strong>
+                <p class="card__content__datas__description"><strong>Data de criação: {{ repoData.created_at }}</strong>
                 <div class="card__content__data"></div>
                 </p>
             </div>
             <div>
-                <p class="card__content__datas__description"><strong>Ultima Atualização:</strong>
+                <p class="card__content__datas__description"><strong>Ultima Atualização: {{ repoData.updated_at }}</strong>
                 <div class="card__content__data"></div>
                 </p>
             </div>
             <div>
                 <p class="card__content__description"> 
-                       
+                       {{ repoData.description }}
                 </p>
             </div>
             <div class="card__icon">      

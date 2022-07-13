@@ -3,50 +3,57 @@ import Github from '@/components/icons/Github.vue';
 import axios from "axios"
 import Card from './Card.vue';
 
-  export default {
+export default {
 
-    data() {
-      return {
-        info: null,
-        username: null
-      }
-    },
+  data() {
+    return {
+      infos: [],
+      username: null
+    }
+  },
 
-    methods: {
-       filter(user = string){ 
+  methods: {
+    filter(user = string) {        
         user = (`https://api.github.com/users/${user}/repos`)
         user = user.toLowerCase();
-        return user;
-      },
-      getUser(user){
-        axios
+        return user;   
+    },
+    getUser(user) {
+      if ( user === null) {
+          window.alert('Você precisa preencher o campo pra eu buscar o repositório, engraçadinho  (    ͡° ͜ʖ ͡°)')
+          return;
+      } else {
+         axios
         .get(this.filter(user))
-        .then(response => (this.info = response))
+        .then(response => (this.infos = response.data))
+        this.username = null;
       }
-    },  
+    }
+  },
 
-    props: ['repoData'],
-
-    components: { Github, Card }
-  }
+  components: { Github, Card }
+}
 
 </script>
 
 <template>
+
   <div class="nav">
     <div class="nav__label">
-      <Github class="nav__label__icon"/>
+      <Github class="nav__label__icon" />
       <strong> GET</strong>hub.
-    </div>
-    <input v-model="username"  class="nav__input" placeholder="Digite aqui o nome do perfil">
-    <button @click="$emit(getUser(username))" class="nav__button">Buscar</button>
+    </div>  
+      <input v-model="username" class="nav__input" placeholder="Digite aqui o nome do perfil" required>
+      <button @click="getUser(username)" @keyup.enter="getUser(username)" class="nav__button">Buscar</button> 
   </div>
   <div class="subtitle">
-      <p>Liste os <strong class="subtitle__strong">repositórios</strong> e obtenha informações do seu perfil <strong
-          class="subtitle__strong">Git</strong> favorito através do <strong class="subtitle__strong">GET</strong>hub ;){{ objetojson }} 
-      </p>
+    <p>Liste os <strong class="subtitle__strong">repositórios</strong> e obtenha informações do seu perfil <strong
+        class="subtitle__strong">Git</strong> favorito através do <strong class="subtitle__strong">GET</strong>hub ;)
+    </p>
   </div>
-  <Card :test="info"/>
+
+  <Card v-for="info in infos" :repoData="info" />
+
 </template>
 
 <style>
@@ -71,6 +78,9 @@ import Card from './Card.vue';
 
 .nav__label__strong {
   color: var(--third-dark);
+}
+.nav__form {
+  display: contents;
 }
 
 .nav__input {
