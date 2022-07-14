@@ -47,8 +47,8 @@ export default {
       <button @click="getUser(username)" v-on:keyup.enter="getUser(username)" class="nav__button">Buscar</button> 
   </div>
   <div class="subtitle">
-    <p>Liste os <strong class="subtitle__strong">repositórios</strong> e obtenha informações do seu perfil <strong
-        class="subtitle__strong">Git</strong> favorito através do <strong class="subtitle__strong">GET</strong>hub ;)
+    <p>Liste os <strong class="subtitle__strong">repositórios </strong> do seu perfil <strong
+        class="subtitle__strong">Git</strong> favorito,<br/> obtenha informações sobre commits, datas e mais, através do <strong class="subtitle__strong">GET</strong>hub ;)
     </p>
   </div>
 
@@ -131,6 +131,7 @@ export default {
   color: var(--fifth-dark);
   font-weight: 300;
   font-size: 17px;
+  text-align: center;
 }
 
 .subtitle__strong {
