@@ -2,6 +2,7 @@
 import Github from '@/components/icons/Github.vue';
 import axios from "axios"
 import Card from './Card.vue';
+import CardForWelcomePage from './CardForWelcomePage.vue'
 
 export default {
 
@@ -25,13 +26,13 @@ export default {
       } else {
          axios
         .get(this.filter(user))
-        .then(response => (this.infos = response.data))
+        .then (response => (this.infos = response.data))
         this.username = null;
       }
     }
   },
 
-  components: { Github, Card }
+  components: { Github, Card, CardForWelcomePage }
 }
 
 </script>
@@ -46,12 +47,8 @@ export default {
       <input v-model="username" class="nav__input" placeholder="Digite aqui o nome do perfil" required>
       <button @click="getUser(username)" v-on:keyup.enter="getUser(username)" class="nav__button">Buscar</button> 
   </div>
-  <div class="subtitle">
-    <p>Liste os <strong class="subtitle__strong">repositórios </strong> do seu perfil <strong
-        class="subtitle__strong">Git</strong> favorito,<br/> obtenha informações sobre commits, datas e mais, através do <strong class="subtitle__strong">GET</strong>hub ;)
-    </p>
-  </div>
-
+  
+  <CardForWelcomePage />
   <Card v-for="info in infos" :repoData="info" />
 
 </template>
@@ -59,8 +56,8 @@ export default {
 <style>
 .nav {
   margin: 0 auto;
-  margin-top: 10px;
-  height: 8em;
+  margin-top: 75px;
+  height: 2em;
   max-width: 1100px;
   display: flex;
   justify-content: center;
@@ -123,22 +120,5 @@ export default {
   --_p: 0%;
 }
 
-.subtitle {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  font-family: 'poppins', sans-serif;
-  color: var(--fifth-dark);
-  font-weight: 300;
-  font-size: 17px;
-  text-align: center;
-}
 
-.subtitle__strong {
-  color: var(--third-dark);
-}
-
-p {
-  margin-top: 0;
-}
 </style>
