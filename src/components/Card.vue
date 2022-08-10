@@ -2,21 +2,19 @@
 import Github from '@/components/icons/Github.vue';
 import Link from '@/components/icons/Link.vue'
 export default {
-    
+
     data() {
         return {
-    
+
         }
     },
     components: { Github, Link },
-    props: [ 'repoData'],
-    filters:{
-    valuefilter(value){
-      return '$'+ value
+    props: ['repoData'],
+    filters: {
+        valuefilter(value) {
+            return '$' + value
+        }
     }
-  }
-  
-    
 }
 
 </script>
@@ -27,24 +25,28 @@ export default {
                 <h3 class="card__content__title">{{ repoData.name }}</h3>
             </div>
             <div>
-                <p class="card__content__datas__description"><strong>Data de criação: {{Intl.DateTimeFormat('pt-br').format(new Date(repoData.created_at))}}</strong>
+                <p class="card__content__datas__description"><strong>Data de criação: {{
+                        Intl.DateTimeFormat('pt-br').format(new Date(repoData.created_at))
+                }}</strong>
                 <div class="card__content__data"></div>
                 </p>
             </div>
             <div>
-                <p class="card__content__datas__description"><strong>Ultima Atualização: {{Intl.DateTimeFormat('pt-br').format(new Date(repoData.updated_at ))}}</strong>
+                <p class="card__content__datas__description"><strong>Ultima Atualização: {{
+                        Intl.DateTimeFormat('pt-br').format(new Date(repoData.updated_at))
+                }}</strong>
                 <div class="card__content__data"></div>
                 </p>
             </div>
             <div>
-                <p class="card__content__description"> 
-                       {{ repoData.description }}
+                <p class="card__content__description">
+                    {{ repoData.description }}
                 </p>
             </div>
-            <div class="card__icon">      
-                <div  id="card__icon__animation">
+            <div class="card__icon">
+                <div id="card__icon__animation">
                     <a v-bind:href="repoData.html_url" target="__blank">
-                        <Link class="card__icon__link" alt="Seguir link"/>
+                        <Link class="card__icon__link" alt="Seguir link" />
                     </a>
                     <div id="card__icon__underline"></div>
                 </div>
@@ -160,4 +162,17 @@ p {
         opacity: 1;
     }
 }
+
+@media (max-width: 480px) {
+
+.card__content {
+    text-align: center;
+}
+
+.card__content__description {
+    font-size: 15px;
+}
+  
+}
+
 </style>

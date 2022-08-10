@@ -20,7 +20,7 @@ export default {
         return user;   
     },
     getUser(user) {
-      if ( user === null) {
+      if (user === null) {
           window.alert('Você precisa preencher o campo pra eu buscar o repositório, engraçadinho  (    ͡° ͜ʖ ͡°)')
           return;
       } else {
@@ -120,5 +120,52 @@ export default {
   --_p: 0%;
 }
 
+@media (max-width: 480px) {
+
+  .container {
+    width: 300px;
+  }
+
+  .nav {
+    margin-top: 100px;
+    display: block;
+    flex-direction: column;
+  }
+
+  .nav__label {
+    text-align: center;
+  }
+ 
+  .nav__input {
+    width: 100%;
+    height: 35px;
+    padding: 0;
+    padding-left: 20px;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .nav__button {
+    width: 100%;
+    font-size: 17px;
+    background: none;
+  }
+
+  .card__welcome {
+    padding: 0;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  p {
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  
+
+}
 
 </style>

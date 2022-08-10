@@ -1,5 +1,5 @@
 <template>
-    <div class="card__Welcome">
+    <div class="card__welcome">
         <div class="subtitle">
             <p>Liste os <strong class="subtitle__strong">repositórios </strong> do seu perfil <strong
                     class="subtitle__strong">Git</strong> favorito,<br /> obtenha informações sobre commits, datas e
@@ -12,7 +12,7 @@
 </script>
 <style>
 
-.card__Welcome {
+.card__welcome {
     box-sizing: border-box;
     margin: 0 auto;
     margin-top: 40px;
