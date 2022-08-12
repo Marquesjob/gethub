@@ -14,19 +14,19 @@ export default {
   },
 
   methods: {
-    filter(user = string) {        
-        user = (`https://api.github.com/users/${user}/repos`)
-        user = user.toLowerCase();
-        return user;   
+    filter(user = string) {
+      user = (`https://api.github.com/users/${user}/repos`)
+      user = user.toLowerCase();
+      return user;
     },
     getUser(user) {
       if (user === null) {
-          window.alert('Você precisa preencher o campo pra eu buscar o repositório, engraçadinho  (    ͡° ͜ʖ ͡°)')
-          return;
+        window.alert('Você precisa preencher o campo pra eu buscar o repositório, engraçadinho  (    ͡° ͜ʖ ͡°)')
+        return;
       } else {
-         axios
-        .get(this.filter(user))
-        .then (response => (this.infos = response.data))
+        axios
+          .get(this.filter(user))
+          .then(response => (this.infos = response.data))
         this.username = null;
       }
     }
@@ -43,11 +43,11 @@ export default {
     <div class="nav__label">
       <Github class="nav__label__icon" />
       <strong> GET</strong>hub.
-    </div>  
-      <input v-model="username" class="nav__input" placeholder="Digite aqui o nome do perfil" required>
-      <button @click="getUser(username)" v-on:keyup.enter="getUser(username)" class="nav__button">Buscar</button> 
+    </div>
+    <input v-model="username" class="nav__input" placeholder="Digite aqui o nome do perfil" required>
+    <button @click="getUser(username)" v-on:keyup.enter="getUser(username)" class="nav__button">Buscar</button>
   </div>
-  
+
   <CardForWelcomePage />
   <Card v-for="info in infos" :repoData="info" />
 
@@ -62,8 +62,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-bottom: 1px solid;
-    border-color: var(--third-dark); */
 }
 
 .nav__label {
@@ -76,6 +74,7 @@ export default {
 .nav__label__strong {
   color: var(--third-dark);
 }
+
 .nav__form {
   display: contents;
 }
@@ -121,63 +120,14 @@ export default {
 }
 
 @media (max-width: 710px) {
-.nav {
-    margin-top: 100px;
-    display: block;
-    flex-direction: column;
-}
-
-.nav__label {
-    text-align: center;
-  }
- 
-  .nav__input {
-    width: 100%;
-    height: 35px;
-    padding: 0;
-    padding-left: 20px;
-    margin: 0;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .nav__button {
-    width: 100%;
-    font-size: 17px;
-    background: none;
-  }
-
-  .card__welcome {
-    padding: 0;
-  }
-
-  .subtitle {
-    font-size: 15px;
-  }
-
-  p {
-    text-align: center;
-    margin-top: 80px;
-  }
-
-
-}
-
-@media (max-width: 576px) {
-
-  .container {
-    width: 80%;
-  }
-
   .nav {
     margin-top: 100px;
     display: block;
     flex-direction: column;
   }
-
   .nav__label {
     text-align: center;
   }
- 
   .nav__input {
     width: 100%;
     height: 35px;
@@ -192,20 +142,53 @@ export default {
     font-size: 17px;
     background: none;
   }
-
   .card__welcome {
     padding: 0;
   }
-
   .subtitle {
     font-size: 15px;
   }
-
   p {
     text-align: center;
     margin-top: 80px;
   }
-
 }
 
+@media (max-width: 576px) {
+  .container {
+    width: 80%;
+  }
+  .nav {
+    margin-top: 100px;
+    display: block;
+    flex-direction: column;
+  }
+  .nav__label {
+    text-align: center;
+  }
+  .nav__input {
+    width: 100%;
+    height: 35px;
+    padding: 0;
+    padding-left: 20px;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .nav__button {
+    width: 100%;
+    font-size: 17px;
+    background: none;
+  }
+  .card__welcome {
+    padding: 0;
+  }
+  .subtitle {
+    font-size: 15px;
+  }
+  p {
+    text-align: center;
+    margin-top: 80px;
+  }
+}
 </style>

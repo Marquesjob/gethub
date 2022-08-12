@@ -25,9 +25,4 @@ export default {
   margin-bottom: 100px
 }
 
-/* Os breakpoints de todos os componentes estarão no componente principal */
-
-
-
-
 </style>
