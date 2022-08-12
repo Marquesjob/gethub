@@ -19,6 +19,7 @@ export default {
 @import './assets/base.css';
 
 .container {
+  width: 80%;
   margin: 0 auto;
   max-width: 1200px;
   margin-bottom: 100px

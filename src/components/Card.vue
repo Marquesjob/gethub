@@ -163,7 +163,7 @@ p {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
 
 .card__content {
     text-align: center;
