@@ -1,5 +1,13 @@
 # gethub
 
+## Projetc Pictures
+
+- Desktop Resolution: 
+![Demonstração](src/assets/img/gethub1920x.png)
+
+- Responsive adaptation: 
+![Demonstração](src/assets/img/gethub400x.png)
+
 ## Project Setup
 
 ```sh
