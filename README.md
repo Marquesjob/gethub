@@ -5,7 +5,7 @@
 - Desktop Resolution: 
 ![Demonstração](src/assets/img/gethub1920x.png)
 
-- Responsive adaptation: 
+- Responsive adaptation:</br> 
 ![Demonstração](src/assets/img/gethub400x.png)
 
 ## Project Setup
