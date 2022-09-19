@@ -1,6 +1,7 @@
 <script>
 import Github from '@/components/icons/Github.vue';
 import Link from '@/components/icons/Link.vue'
+
 export default {
 
     data() {
@@ -10,9 +11,9 @@ export default {
     },
     components: { Github, Link },
     props: ['repoData'],
-    filters: {
-        valuefilter(value) {
-            return '$' + value
+    methods: {
+        dateFilter(data) {
+            return Intl.DateTimeFormat('pt-br').format(new Date(data))
         }
     }
 }
@@ -25,16 +26,12 @@ export default {
                 <h3 class="card__content__title">{{ repoData.name }}</h3>
             </div>
             <div>
-                <p class="card__content__datas__description"><strong>Data de criação: {{
-                        Intl.DateTimeFormat('pt-br').format(new Date(repoData.created_at))
-                }}</strong>
+                <p class="card__content__datas__description"><strong>Data de criação:{{ dateFilter(repoData.created_at) }}</strong>
                 <div class="card__content__data"></div>
                 </p>
             </div>
             <div>
-                <p class="card__content__datas__description"><strong>Ultima Atualização: {{
-                        Intl.DateTimeFormat('pt-br').format(new Date(repoData.updated_at))
-                }}</strong>
+                <p class="card__content__datas__description"><strong>Ultima Atualização: {{ dateFilter(repoData.updated_at) }}</strong>
                 <div class="card__content__data"></div>
                 </p>
             </div>
@@ -165,14 +162,13 @@ p {
 
 @media (max-width: 576px) {
 
-.card__content {
-    text-align: center;
-}
+    .card__content {
+        text-align: center;
+    }
 
-.card__content__description {
-    font-size: 15px;
-}
-  
-}
+    .card__content__description {
+        font-size: 15px;
+    }
 
+}
 </style>
